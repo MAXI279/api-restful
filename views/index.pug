@@ -1,0 +1,21 @@
+extends layouts/main.pug
+block content
+    h2 Formulario de ingreso
+    h3 #{ message }
+    h3 Productos
+    form.form-capsule(role='form' method='POST' action='productos')
+        .form-group
+            label(for='title') Title
+            input#title.form-control(type='text' name='title' placeholder='Ingrese el titulo del producto')
+        .form-group
+            label(for='price') Price
+            input#price.form-control(type='text' name='price' placeholder='Ingrese el precio')
+            span.help-block.help-block-inline.help-block-background $
+        .form-group
+            label(for='thumbnail') Thumbnail
+            input#thumbnail.form-control(type='text' name='thumbnail' placeholder='Ingrese la URL de imagen de producto')
+        hr.my-4
+        button.w-100.btn.btn-block.btn-primary.btn-lg(type='submit') Ingresar
+    a.w-100.btn.btn-block.btn-primary.btn-lg(href='/productos') Lista de productos
+
+

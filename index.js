@@ -1,6 +1,5 @@
 const express = require('express')
-const { engine } = require('express-handlebars')
-const path = require('path')
+
 const rutasApi = require('./routes/app.routes')
 const rutasWeb = require('./routes/web.routes')
 
@@ -9,13 +8,7 @@ const PORT = process.env.PORT || 8080
 
 app.use('/public', express.static('public'))
 
-app.engine('handlebars', engine({
-  extname: 'hbs',
-  defaultLayout: 'main.hbs',
-  layoutsDir: path.resolve(__dirname, './views/layouts'),
-  partialsDir: path.resolve(__dirname, './views/partials')
-}))
-app.set('view engine', 'handlebars')
+app.set('view engine', 'pug')
 app.set('views', './views')
 
 app.use('/', rutasWeb)
