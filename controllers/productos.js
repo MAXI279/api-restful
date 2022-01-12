@@ -1,12 +1,13 @@
 
-const { productos } = require('../data/productos')
-const existeRegistroEnArray = require('../utils/valido-existencia-registro')
+const ProductosApi = require('../models/productos.api')
+
+const productos = new ProductosApi()
 
 const getAllProductos = (req, res) => {
   try {
     return res.json({
       status: 200,
-      body: productos
+      body: productos.listarTodos()
     })
   } catch (error) {
     return res.sendStatus(500)
@@ -16,8 +17,8 @@ const getAllProductos = (req, res) => {
 const getProductoById = (req, res) => {
   try {
     const { id } = req.params
-    const producto = productos.find(prod => prod.id === +id)
-    if (!producto) {
+    const producto = productos.listarPorId(id)
+    if (producto.error) {
       return res.json({
         status: 400,
         error: 'Producto no encontrado'
@@ -34,15 +35,13 @@ const getProductoById = (req, res) => {
 
 const postProducto = (req, res) => {
   try {
-    const { title, price, thumbnail } = req.body
-    const ultimoId = Math.max(...productos.map(prod => prod.id)) + 1
-    const producto = {
-      id: ultimoId,
-      title,
-      price,
-      thumbnail
+    const producto = productos.guardar(req.body)
+    if (producto.error) {
+      return res.json({
+        status: 400,
+        error: producto.error
+      })
     }
-    productos.push(producto)
     return res.json({
       status: 200,
       body: producto
@@ -55,24 +54,16 @@ const postProducto = (req, res) => {
 const putProductoById = (req, res) => {
   try {
     const { id } = req.params
-    const { title, price, thumbnail } = req.body
-    const producto = productos.find(prod => prod.id === +id)
-    if (!producto) {
+    const producto = productos.actualizar(req.body, id)
+    if (producto.error) {
       return res.json({
         status: 400,
-        error: 'Producto no encontrado'
+        error: producto.error
       })
     }
-    const nuevoProducto = {
-      id: producto.id,
-      title,
-      price,
-      thumbnail
-    }
-    productos.splice(productos.findIndex(prod => prod.id === +id), 1, nuevoProducto)
     return res.json({
       status: 200,
-      body: nuevoProducto
+      body: producto
     })
   } catch (error) {
     return res.sendStatus(500)
@@ -82,13 +73,13 @@ const putProductoById = (req, res) => {
 const deleteProductoById = (req, res) => {
   try {
     const { id } = req.params
-    if (!existeRegistroEnArray(productos, id)) {
+    const producto = productos.eliminar(id)
+    if (producto.error) {
       return res.json({
         status: 400,
-        error: 'Producto no encontrado'
+        error: producto.error
       })
     }
-    productos.splice(productos.findIndex(prod => prod.id === +id), 1)
     return res.sendStatus(200)
   } catch (error) {
     return res.sendStatus(500)

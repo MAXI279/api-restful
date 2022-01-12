@@ -1,0 +1,28 @@
+
+<h2>Vista de productos</h2>
+<h3>Productos</h3>
+{{> error}}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each productos}}
+    <tr>
+      <th scope="row">{{ title }}</th>
+      <td>{{ price }}</td>
+      <td><img src="{{ thumbnail }}" width="50"> </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a class="w-100 btn btn-block btn-primary btn-lg" href="/">Nuevo</a>
+
+
+
