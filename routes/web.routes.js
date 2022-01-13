@@ -6,7 +6,7 @@ const router = express.Router()
 router.use(express.urlencoded({ extended: true }))
 
 router.get('/', (req, res) => {
-  res.render('index')
+  res.render('pages/index', { message: false })
 })
 
 router.post('/productos', postProducto)

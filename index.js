@@ -8,8 +8,7 @@ const PORT = process.env.PORT || 8080
 
 app.use('/public', express.static('public'))
 
-app.set('view engine', 'pug')
-app.set('views', './views')
+app.set('view engine', 'ejs')
 
 app.use('/', rutasWeb)
 app.use('/api', rutasApi)

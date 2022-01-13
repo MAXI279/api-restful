@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <%-  include('../partials/head') %>
+</head>
+<body>
+    <div class="container">
+      <h2>Vista de productos</h2>
+      <h3>Productos</h3>
+      <%-  include('../partials/error') %>
+      <% if (typeof(productos) !="undefined") { %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Foto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% productos.forEach(function(prod) { %>
+          <tr>
+            <th scope="row"><%= prod.title %></th>
+            <td><%= prod.price %></td>
+            <td><img src="<%= prod.thumbnail %>" width="50"> </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+      <a class="w-100 btn btn-block btn-primary btn-lg" href="/">Nuevo</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+
+</body>
+</html>
