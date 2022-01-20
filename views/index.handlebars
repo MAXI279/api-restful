@@ -3,23 +3,33 @@
 <h3>{{message}}</h3>
 <h3>Productos</h3>
     <form class="form-capsule" role="form" method="POST" action="productos">
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Ingrese el titulo del producto">
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="price">Price</label>
             <input type="text" class="form-control" id="price" name="price" placeholder="Ingrese el precio">
             <span class=" help-block help-block-inline help-block-background">$</span>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="thumbnail">Thumbnail</label>
             <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Ingrese la URL de imagen de producto">
         </div>
         <hr class="my-4">
-        <button class="w-100 btn btn-block btn-primary btn-lg" type="submit">Ingresar</button>
+        <button class="w-100 btn btn-block btn-primary btn-lg" type="submit"  onclick="sendProducto()">Ingresar</button>
     </form>
 
     <a class="w-100 btn btn-block btn-primary btn-lg" href="/productos">Lista de productos</a>
+
+    <div class="row align-items-md-stretch">
+    <div class="col-lg-12">
+        <div id="listaPrd" class="p-4 mt-5 text-dark rounded-3 bg-gris">
+
+        </div>
+    </div>
+</div>
+
+    {{> centroMensajes}}
 
 
