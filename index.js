@@ -1,11 +1,22 @@
 const express = require('express')
 const { engine } = require('express-handlebars')
 const path = require('path')
+const http = require('http')
 const rutasApi = require('./routes/app.routes')
 const rutasWeb = require('./routes/web.routes')
+const Contenedor = require('./utils/manejo-archivos')
 
 const app = express()
 const PORT = process.env.PORT || 8080
+
+const server = http.createServer(app)
+const io = require('socket.io')(server)
+
+const { chatSocket } = require('./socket/index')
+const ruta = './mensajes.json'
+const contenedor = new Contenedor(ruta)
+
+const chat = []
 
 app.use('/public', express.static('public'))
 
@@ -19,12 +30,11 @@ app.set('view engine', 'handlebars')
 app.set('views', './views')
 
 app.use('/', rutasWeb)
+
+chatSocket(contenedor, io, chat)
+
 app.use('/api', rutasApi)
 
-const server = app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log('Servidor Online')
-})
-
-server.on('error', (error) => {
-  console.error(`Ha ocurrido un error, reintente. Detalle: ${error}`)
 })
