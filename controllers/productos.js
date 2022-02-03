@@ -3,21 +3,21 @@ const ProductosApi = require('../models/productos.api')
 
 const productos = new ProductosApi()
 
-const getAllProductos = (req, res) => {
+const getAllProductos = async (req, res) => {
   try {
     return res.json({
       status: 200,
-      body: productos.listarTodos()
+      body: await productos.listarTodos()
     })
   } catch (error) {
     return res.sendStatus(500)
   }
 }
 
-const getProductoById = (req, res) => {
+const getProductoById = async (req, res) => {
   try {
     const { id } = req.params
-    const producto = productos.listarPorId(id)
+    const producto = await productos.listarPorId(id)
     if (producto.error) {
       return res.json({
         status: 400,
@@ -33,9 +33,9 @@ const getProductoById = (req, res) => {
   }
 }
 
-const postProducto = (req, res) => {
+const postProducto = async (req, res) => {
   try {
-    const producto = productos.guardar(req.body)
+    const producto = await productos.guardar(req.body)
     if (producto.error) {
       return res.json({
         status: 400,
@@ -51,10 +51,10 @@ const postProducto = (req, res) => {
   }
 }
 
-const putProductoById = (req, res) => {
+const putProductoById = async (req, res) => {
   try {
     const { id } = req.params
-    const producto = productos.actualizar(req.body, id)
+    const producto = await productos.actualizar(req.body, id)
     if (producto.error) {
       return res.json({
         status: 400,
@@ -70,10 +70,10 @@ const putProductoById = (req, res) => {
   }
 }
 
-const deleteProductoById = (req, res) => {
+const deleteProductoById = async (req, res) => {
   try {
     const { id } = req.params
-    const producto = productos.eliminar(id)
+    const producto = await productos.eliminar(id)
     if (producto.error) {
       return res.json({
         status: 400,

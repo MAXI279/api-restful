@@ -4,17 +4,19 @@ const path = require('path')
 const http = require('http')
 const rutasApi = require('./routes/app.routes')
 const rutasWeb = require('./routes/web.routes')
-const Contenedor = require('./utils/manejo-archivos')
+const { knexSqlite3, chatTable, prodTable } = require('./data/config')
+const Contenedor = require('./utils/manejo-knex')
+const initDB = require('./data/initDB')
 
 const app = express()
 const PORT = process.env.PORT || 8080
 
 const server = http.createServer(app)
 const io = require('socket.io')(server)
-
 const { chatSocket } = require('./socket/index')
-const ruta = './mensajes.json'
-const contenedor = new Contenedor(ruta)
+
+initDB(chatTable, prodTable)
+const contenedor = new Contenedor(chatTable, knexSqlite3)
 
 const chat = []
 
