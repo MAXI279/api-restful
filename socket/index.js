@@ -20,17 +20,6 @@ const chatSocket = (contenedor, io, chat) => {
   const emitir = () => io.sockets.emit('chat', chat)
 
   const emitirUpdateProductos = () => io.sockets.emit('updateProductos')
-  /*
-  const emitirProductos = () => io.sockets.emit('productos', chat)
-
-  const solicitarProductos = async () => {
-    try {
-      return await fetch('http://localhost:8080/api/productos')
-    } catch (error) {
-      console.log(error)
-    }
-    const productos = 1
-  } */
 
   const obtenerChatsYActualizar = async () => {
     await contenedor.getAll().then((res) => {
