@@ -1,4 +1,7 @@
 const express = require('express')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true }
 const { engine } = require('express-handlebars')
 const path = require('path')
 const http = require('http')
@@ -30,6 +33,21 @@ app.engine('handlebars', engine({
 }))
 app.set('view engine', 'handlebars')
 app.set('views', './views')
+
+app.use(session({
+  name: 'my-session',
+  store: MongoStore.create({
+    mongoUrl: 'mongodb+srv://mean_user:O4f6WouHN1c8HChm@cluster0.xapvy.mongodb.net/sessions?retryWrites=true&w=majority',
+    mongoOptions: advancedOptions
+  }),
+  secret: 'stringUltraSecreto',
+  resave: false,
+  saveUninitialized: false,
+  rolling: true,
+  cookie: {
+    maxAge: 60000
+  }
+}))
 
 app.use('/', rutasWeb)
 
