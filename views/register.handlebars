@@ -1,0 +1,21 @@
+<main class="form-signin">
+  <form method="POST" action="signup">
+    <h1 class="h3 mb-3 fw-normal">Registro de usuario</h1>
+    <h3>{{message}}</h3>
+    <div class="form-floating mb-2">
+      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+      <label for="nombre">Ingrese su nombre</label>
+    </div>
+    <div class="form-floating mb-2">
+      <input type="email" class="form-control" name="username" id="username" placeholder="Email">
+      <label for="username">Ingrese su Email</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+      <label for="password">Ingrese una contraseña</label>
+    </div>
+
+    <button class="w-100 mt-3 btn btn-lg btn-primary" type="submit">Registrarme</button>
+  </form>
+  <a class="w-100 mt-3 btn btn-lg btn-primary" href="/">Volver a inicio</a>
+</main>

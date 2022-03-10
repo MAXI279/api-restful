@@ -1,44 +1,28 @@
 const express = require('express')
 const { postProducto, getProductos } = require('../controllers/productos.web')
-const webAuth = require('../middlewares/auth.middleware')
+const { getLogin, postLogin, getSignUp, postSignUp, getLogout, getFailsignup, getFaillogin } = require('../controllers/auth.web')
+const checkAuthentication = require('../middlewares/auth.middleware')
+const passport = require('../middlewares/passport')
 
 const router = express.Router()
 
 router.use(express.urlencoded({ extended: true }))
 
-router.get('/', (req, res) => {
-  res.render('login')
-})
+router.get('/', checkAuthentication, getLogin)
 
-router.get('/logout', (req, res) => {
-  const nombre = req.session?.nombre
-  if (nombre) {
-    req.session.destroy(err => {
-      if (!err) {
-        res.clearCookie('my-session')
-        res.render('logout', { nombre: nombre })
-      } else {
-        res.clearCookie('my-session')
-        res.redirect('/')
-      }
-    })
-  } else {
-    res.render('login')
-  }
-})
+router.get('/register', getSignUp)
 
-router.post('/login', (req, res) => {
-  const { nombre } = req.body
-  if (!nombre) {
-    return res.render('login', { message: 'No ha ingresado un nombre' })
-  }
-  req.session.nombre = nombre
-  res.render('index', { nombre: req.session.nombre })
-})
+router.get('/logout', getLogout)
 
-router.get('/login', webAuth, (req, res) => {
-  res.render('index', { nombre: req.session.nombre })
-})
+router.post('/login', passport.authenticate('signin', { failureRedirect: '/faillogin' }), postLogin)
+
+router.get('/faillogin', getFaillogin)
+
+router.post('/signup', passport.authenticate('signup', { failureRedirect: '/failsignup' }), postSignUp)
+
+router.get('/failsignup', getFailsignup)
+
+router.get('/login', checkAuthentication, getLogin)
 
 router.post('/productos', postProducto)
 
