@@ -3,10 +3,14 @@
     <h1 class="h3 mb-3 fw-normal">Login de usuario</h1>
     <h3>{{message}}</h3>
     <div class="form-floating">
-      <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-      <label for="nombre">Ingrese su nombre</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Email">
+      <label for="username">Ingrese su email</label>
     </div>
-
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Clave">
+      <label for="password">Ingrese su clave</label>
+    </div>
     <button class="w-100 mt-3 btn btn-lg btn-primary" type="submit">Enviar</button>
   </form>
+  <a class="w-100 mt-3 btn btn-lg btn-primary" href="register">Registrarme</a>
 </main>

@@ -1,10 +1,10 @@
 
-const webAuth = (req, res, next) => {
-  if (req.session?.nombre) {
+const checkAuthentication = (req, res, next) => {
+  if (req.isAuthenticated()) {
     next()
   } else {
-    res.redirect('/')
+    res.render('login')
   }
 }
 
-module.exports = webAuth
+module.exports = checkAuthentication
