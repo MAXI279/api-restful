@@ -21,6 +21,9 @@ const STATUS = {
   }
 }
 
+const DEFAULT_RANDOM_NUM_CANT = 100000000
+
 module.exports = {
-  STATUS
+  STATUS,
+  DEFAULT_RANDOM_NUM_CANT
 }

@@ -13,9 +13,11 @@ const { knexSqlite3, chatTable, prodTable } = require('./data/config')
 const Contenedor = require('./utils/manejo-knex')
 const initDB = require('./data/initDB')
 const env = require('./env.config')
+const process = require('process')
+const { puerto } = require('./utils/minimist')
 
 const app = express()
-const PORT = env.PORT || 8080
+const PORT = puerto || 8080
 
 const server = http.createServer(app)
 const io = require('socket.io')(server)
@@ -55,6 +57,19 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/', rutasWeb)
+
+app.use('/info', (req, res) => {
+  return res.json({
+    ruta: '/info',
+    ARGUMENTOS_ENTRADA: process.argv,
+    SISTEMA_OPERATIVO: process.platform,
+    VERSION_NODE: process.version,
+    MEMORIA_RSS: process.memoryUsage().rss,
+    PATH_EJECUCION: process.execPath,
+    PROCESS_ID: process.pid,
+    CARPETA_PROYECTO: process.cwd()
+  })
+})
 
 chatSocket(contenedor, io, chat)
 
