@@ -4,9 +4,14 @@
   "description": "Desafio API Restful",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "start-dev": "nodemon index.js"
+    "start": "pm2 start index.js --name=\"Fork Server\" -- -p 8080 -m FORK ",
+    "start-dev": "nodemon index.js",
+    "fork-consigna-1": "pm2 start index.js --name=\"Fork Server\" -- -p 8080 -m FORK ",
+    "cluster-consigna-1": "pm2 start index.js --name=\"Cluster Server\" -i -- -p 8081 -m CLUSTER ",
+    "fork-consigna-2-8082": "pm2 start index.js --name=\"Fork Svr-8082-NGINX\" -- -p 8082 -m FORK ",
+    "fork-consigna-2-8083": "pm2 start index.js --name=\"Fork Svr-8083-NGINX\" -- -p 8083 -m FORK ",
+    "fork-consigna-2-8084": "pm2 start index.js --name=\"Fork Svr-8084-NGINX\" -- -p 8084 -m FORK ",
+    "fork-consigna-2-8085": "pm2 start index.js --name=\"Fork Svr-8085-NGINX\" -- -p 8085 -m FORK "
   },
   "author": "Maximiliano Bianco",
   "license": "ISC",
@@ -27,6 +32,7 @@
     "node-gyp": "^8.4.1",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+    "pm2": "^5.2.0",
     "socket.io": "^4.4.1",
     "sqlite3": "^5.0.2"
   },

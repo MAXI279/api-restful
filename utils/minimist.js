@@ -2,10 +2,12 @@ const minimist = require('minimist')
 
 const args = minimist(process.argv.splice(2), {
   alias: {
-    p: 'puerto'
+    p: 'puerto',
+    m: 'modo'
   },
   default: {
-    puerto: 8080
+    puerto: 8080,
+    modo: 'FORK'
   }
 })
 

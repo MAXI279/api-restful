@@ -15,11 +15,6 @@ router.get('/', (req, res) => {
   })
 
   console.log('no me bloqueo')
-
-  // return res.json({
-  //   msj: 'api/randoms',
-  //   data: myObject
-  // })
 })
 
 module.exports = router
