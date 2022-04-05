@@ -101,6 +101,26 @@ if (modoCluster && cluster.isPrimary) {
     }
   })
 
+  app.use('/info-bloq', (req, res, next) => {
+    try {
+      const info = {
+        ruta: '/info',
+        NUMERO_DE_PROCESADORES: os.cpus().length,
+        ARGUMENTOS_ENTRADA: process.argv,
+        SISTEMA_OPERATIVO: process.platform,
+        VERSION_NODE: process.version,
+        MEMORIA_RSS: process.memoryUsage().rss,
+        PATH_EJECUCION: process.execPath,
+        PROCESS_ID: process.pid,
+        CARPETA_PROYECTO: process.cwd()
+      }
+      console.log(info)
+      return res.json(info)
+    } catch (error) {
+      next(error)
+    }
+  })
+
   app.use('/infoZip', compression(), (req, res, next) => {
     try {
       const info = {
