@@ -1,0 +1,173 @@
+Statistical profiling result from no-bloq-v8.log, (1721 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1439   83.6%          C:\WINDOWS\SYSTEM32\ntdll.dll
+    274   15.9%          C:\Program Files\nodejs\node.exe
+      2    0.1%          C:\WINDOWS\System32\KERNELBASE.dll
+      1    0.1%          C:\WINDOWS\system32\mswsock.dll
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      2    0.1%   40.0%  LazyCompile: *resolve node:path:158:10
+      2    0.1%   40.0%  Function: ^authenticate C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\passport\lib\middleware\authenticate.js:94:31
+      1    0.1%   20.0%  LazyCompile: *nextTick node:internal/process/task_queues:104:18
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+      5    0.3%  100.0%  JavaScript
+      0    0.0%    0.0%  C++
+     14    0.8%  280.0%  GC
+   1716   99.7%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1439   83.6%  C:\WINDOWS\SYSTEM32\ntdll.dll
+
+    274   15.9%  C:\Program Files\nodejs\node.exe
+    173   63.1%    C:\Program Files\nodejs\node.exe
+     33   19.1%      Function: ^compileFunction node:vm:308:25
+     33  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1011:18
+     33  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+     32   97.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1    3.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1106:37
+     23   13.3%      Function: ^handleWriteReq node:internal/stream_base_commons:45:24
+     23  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:151:22
+     16   69.6%          Function: ^Socket._writeGeneric node:net:769:42
+     16  100.0%            Function: ^Socket._write node:net:806:35
+      7   30.4%          LazyCompile: *writeOrBuffer node:internal/streams/writable:366:23
+      7  100.0%            LazyCompile: *_write node:internal/streams/writable:284:16
+     12    6.9%      Function: ^realpathSync node:fs:2408:22
+     12  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:393:20
+     11   91.7%          Function: ^tryFile node:internal/modules/cjs/loader:384:17
+     11  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      1    8.3%          Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+     10    5.8%      Function: ^stat node:internal/modules/cjs/loader:151:14
+      6   60.0%        Function: ^tryFile node:internal/modules/cjs/loader:384:17
+      6  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:400:23
+      6  100.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      4   40.0%        Function: ^Module._findPath node:internal/modules/cjs/loader:494:28
+      4  100.0%          Function: ^Module._resolveFilename node:internal/modules/cjs/loader:848:35
+      4  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      6    3.5%      Function: ^cpus node:os:133:14
+      6  100.0%        Function: ^<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\index.js:85:20
+      6  100.0%          Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\layer.js:86:49
+      6  100.0%            Function: ^trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      5    2.9%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4   80.0%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1   25.0%          Function: ~<anonymous> node:tty:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:internal/crypto/pbkdf2:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:http:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:assert:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   20.0%        Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      1  100.0%          Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      5    2.9%      C:\Program Files\nodejs\node.exe
+      1   20.0%        LazyCompile: ~callSiteToString C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\depd\lib\compat\index.js:21:76
+      1  100.0%          LazyCompile: ~get C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\depd\lib\compat\index.js:54:16
+      1  100.0%            Function: ~<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\depd\index.js:1:1
+      1   20.0%        LazyCompile: *syncExports node:internal/bootstrap/loaders:287:14
+      1  100.0%          Function: ^compileForPublicLoader node:internal/bootstrap/loaders:246:25
+      1  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:757:24
+      1   20.0%        Function: ~<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\knex\node_modules\debug\src\node.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1   20.0%        Function: ^expressInit C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\middleware\init.js:29:30
+      1  100.0%          Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      1   20.0%        Function: ^_writeRaw node:_http_outgoing:344:19
+      1  100.0%          Function: ^_send node:_http_outgoing:319:49
+      1  100.0%            Function: ^end node:_http_outgoing:833:45
+      4    2.3%      LazyCompile: ~configSecureContext node:internal/tls/secure-context:120:29
+      4  100.0%        LazyCompile: ~createSecureContext node:_tls_common:98:29
+      4  100.0%          LazyCompile: ~connect node:_tls_wrap:1597:35
+      4  100.0%            LazyCompile: ~makeConnection C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\mongodb\lib\cmap\connect.js:241:24
+      4    2.3%      LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4  100.0%        LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:332:29
+      1   25.0%          LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:421:29
+      1  100.0%            LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:22:36
+      1   25.0%          Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      1   25.0%          Function: ~<anonymous> node:internal/bootstrap/pre_execution:1:1
+      1  100.0%            LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:299:27
+      4    2.3%      Function: ^writevGeneric node:internal/stream_base_commons:126:23
+      4  100.0%        Function: ^Socket._writeGeneric node:net:769:42
+      4  100.0%          Function: ^Socket._writev node:net:801:36
+      4  100.0%            Function: ^doWrite node:internal/streams/writable:399:17
+      4    2.3%      Function: ^readSync node:fs:684:18
+      4  100.0%        Function: ^tryReadSync node:fs:429:21
+      4  100.0%          Function: ^readFileSync node:fs:450:22
+      4  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      4    2.3%      Function: ^Hash node:internal/crypto/hash:58:14
+      4  100.0%        Function: ^createHash node:crypto:129:20
+      4  100.0%          Function: ^entitytag C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\etag\index.js:39:20
+      4  100.0%            Function: ^etag C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\etag\index.js:70:15
+      3    1.7%      LazyCompile: ~TLSSocket.getPeerCertificate node:_tls_wrap:984:50
+      3  100.0%        LazyCompile: ~onConnectSecure node:_tls_wrap:1516:25
+      3  100.0%          Function: ^emit node:events:340:44
+      3  100.0%            LazyCompile: ~TLSSocket._finishInit node:_tls_wrap:918:43
+      3    1.7%      Function: ^send C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\response.js:107:25
+      3  100.0%        Function: ^json C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\response.js:239:25
+      3  100.0%          Function: ^<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\index.js:85:20
+      2   66.7%            Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\layer.js:86:49
+      1   33.3%            LazyCompile: *trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      2    1.2%      LazyCompile: *nextTick node:internal/process/task_queues:104:18
+      1   50.0%        Function: ^onwrite node:internal/streams/writable:426:17
+      1  100.0%          Function: ^afterWriteDispatched node:internal/stream_base_commons:159:30
+      1  100.0%            Function: ^writeGeneric node:internal/stream_base_commons:151:22
+      1   50.0%        Function: ^endReadable node:internal/streams/readable:1323:21
+      1  100.0%          Function: ^Readable.read node:internal/streams/readable:402:35
+      1  100.0%            Function: ^flow node:internal/streams/readable:1032:14
+      2    1.2%      LazyCompile: *next C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:176:16
+      1   50.0%        LazyCompile: *handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:136:31
+      1  100.0%          Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\application.js:158:29
+      1  100.0%            Function: ^app C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\express.js:38:21
+      1   50.0%        Function: ^urlencodedParser C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\body-parser\lib\types\urlencoded.js:79:36
+      1  100.0%          Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%            Function: ^trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      2    1.2%      Function: ^session C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express-session\index.js:179:26
+      1   50.0%        LazyCompile: *trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      1  100.0%          LazyCompile: *next C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:176:16
+      1  100.0%            Function: ^infoLog C:\Users\mbianco\workspace\coderhouse\api-restful\middlewares\log.middleware.js:3:17
+      1   50.0%        Function: ^handle C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\layer.js:86:49
+      1  100.0%          Function: ^trim_prefix C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:288:23
+      1  100.0%            LazyCompile: *next C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\express\lib\router\index.js:176:16
+      2    1.2%      Function: ^openSync node:fs:576:18
+      2  100.0%        Function: ^readFileSync node:fs:450:22
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      1   50.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:757:24
+      1   50.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      2    1.2%      Function: ^getOptions node:internal/fs/utils:314:20
+      2  100.0%        Function: ^readFileSync node:fs:450:22
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      2  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      7    2.6%    LazyCompile: *compileFunction node:vm:308:25
+      7  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1011:18
+      7  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1051:37
+      7  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1106:37
+      7  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:757:24
+      3    1.1%    Function: ^Module.load node:internal/modules/cjs/loader:963:33
+      3  100.0%      Function: ^Module._load node:internal/modules/cjs/loader:757:24
+      3  100.0%        Function: ^Module.require node:internal/modules/cjs/loader:991:36
+      3  100.0%          Function: ^require node:internal/modules/cjs/helpers:101:31
+      1   33.3%            Function: ~<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\mysql\lib\protocol\packets\index.js:1:1
+      1   33.3%            Function: ~<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\mongoose\lib\helpers\populate\getModelsMapForPopulate.js:1:1
+      1   33.3%            Function: ~<anonymous> C:\Users\mbianco\workspace\coderhouse\api-restful\node_modules\lodash\_arrayLikeKeys.js:1:1
+
