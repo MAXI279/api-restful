@@ -11,7 +11,8 @@
     "fork-consigna-2-8082": "pm2 start index.js --name=\"Fork Svr-8082-NGINX\" -- -p 8082 -m FORK ",
     "fork-consigna-2-8083": "pm2 start index.js --name=\"Fork Svr-8083-NGINX\" -- -p 8083 -m FORK ",
     "fork-consigna-2-8084": "pm2 start index.js --name=\"Fork Svr-8084-NGINX\" -- -p 8084 -m FORK ",
-    "fork-consigna-2-8085": "pm2 start index.js --name=\"Fork Svr-8085-NGINX\" -- -p 8085 -m FORK "
+    "fork-consigna-2-8085": "pm2 start index.js --name=\"Fork Svr-8085-NGINX\" -- -p 8085 -m FORK ",
+    "heroku-postbuild": "npm install pm2"
   },
   "author": "Maximiliano Bianco",
   "license": "ISC",
