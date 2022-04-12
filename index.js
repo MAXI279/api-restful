@@ -38,7 +38,7 @@ if (modoCluster && cluster.isPrimary) {
     cluster.fork()
   })
 } else {
-  const PORT = puerto || 8080
+  const PORT = env.PORT || 8080
   const app = express()
 
   const server = http.createServer(app)
