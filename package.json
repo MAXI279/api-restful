@@ -4,7 +4,8 @@
   "description": "Desafio API Restful",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js --name=\"Fork Server\" --watch -- -p 8080 -m FORK ",
+    "start": "node index.js",
+    "start-pm2": "pm2 start index.js --name=\"Fork Server\" --watch -- -p 8080 -m FORK ",
     "start-dev": "nodemon index.js",
     "fork-consigna-1": "pm2 start index.js --name=\"Fork Server\" -- -p 8080 -m FORK ",
     "cluster-consigna-1": "pm2 start index.js --name=\"Cluster Server\" -i -- -p 8081 -m CLUSTER ",
