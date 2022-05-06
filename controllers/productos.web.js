@@ -1,10 +1,9 @@
-const ProductosApi = require('../models/productos.api')
-
-const productos = new ProductosApi()
+const ProductoService = require('../services/ProductoService')
+const ProductoServiceInstance = new ProductoService()
 
 const postProducto = async (req, res) => {
   try {
-    const producto = await productos.guardar(req.body)
+    const producto = await ProductoServiceInstance.guardar(req.body)
     if (producto.error) {
       return res.render('index', { message: producto.error })
     }
@@ -16,7 +15,7 @@ const postProducto = async (req, res) => {
 
 const getProductos = async (req, res) => {
   try {
-    const productosList = await productos.listarTodos()
+    const productosList = await ProductoServiceInstance.listarTodos()
     if (productosList.length <= 0) {
       return res.render('listado-productos', { error: 'No hay productos' })
     }

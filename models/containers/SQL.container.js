@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-class Contenedor {
+class SQLContainer {
   constructor (tabla, knex) {
     this.tabla = tabla
     this.knex = knex
@@ -60,4 +60,4 @@ class Contenedor {
   }
 }
 
-module.exports = Contenedor
+module.exports = SQLContainer
