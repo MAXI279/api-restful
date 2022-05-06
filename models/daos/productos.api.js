@@ -1,6 +1,6 @@
-const { knexMariaDB, prodTable } = require('../data/config')
-const Contenedor = require('../utils/manejo-knex')
-const contenedor = new Contenedor(prodTable, knexMariaDB)
+const { knexMariaDB, prodTable } = require('../../data/config')
+const SQLContainer = require('../containers/SQL.container')
+const contenedor = new SQLContainer(prodTable, knexMariaDB)
 class ProductosApi {
   constructor () {
     this.repositorio = contenedor

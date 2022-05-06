@@ -11,13 +11,13 @@ const http = require('http')
 const rutasApi = require('./routes/app.routes')
 const rutasWeb = require('./routes/web.routes')
 const { knexSqlite3, chatTable, prodTable } = require('./data/config')
-const Contenedor = require('./utils/manejo-knex')
+const SQLContainer = require('./models/containers/SQL.container')
 const initDB = require('./data/initDB')
 const env = require('./env.config')
 const process = require('process')
 const cluster = require('cluster')
 const os = require('os')
-const { puerto, modo } = require('./utils/minimist')
+const { /* puerto  , */ modo } = require('./utils/minimist')
 const logger = require('./logs')
 const infoLog = require('./middlewares/log.middleware')
 const apiErrorHandler = require('./error/api-error-handler')
@@ -46,7 +46,7 @@ if (modoCluster && cluster.isPrimary) {
   const { chatSocket } = require('./socket/index')
 
   initDB(chatTable, prodTable)
-  const contenedor = new Contenedor(chatTable, knexSqlite3)
+  const contenedor = new SQLContainer(chatTable, knexSqlite3)
 
   const chat = []
 
