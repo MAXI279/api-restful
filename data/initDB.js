@@ -13,7 +13,6 @@ const initDB = async (tableNameChat, tableNameProductos) => {
     console.log(`la tabla ${tableNameChat} ya existia, se utilizará!`)
   }
 
-  /*
   const existeTablaProductos = await knexMariaDB.schema.hasTable(tableNameProductos)
   if (!existeTablaProductos) {
     await knexMariaDB.schema.createTable(tableNameProductos, table => {
@@ -26,7 +25,6 @@ const initDB = async (tableNameChat, tableNameProductos) => {
   } else {
     console.log(`la tabla ${tableNameProductos} ya existia, se utilizará!`)
   }
-  */
 }
 
 module.exports = initDB

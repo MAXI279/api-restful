@@ -1,29 +1,28 @@
-const ProductosApi = require('../models/daos/productos.api') // Data Access Layer
-
+const ProductosFactoryDAO = require('../models/daos/ProductosFactoryDAO') // Data Access Layer
+const env = require('../env.config')
 class ProductoService {
   constructor () {
-    // Aqui crearia una instancia de mi DAL la cual estaria buena que sea generica y pasarle mi modelo a futuro
-    this.ProductosApiInstance = new ProductosApi()
+    this.productosDao = ProductosFactoryDAO.get(env.PERSISTENCIA_PRODUCTOS)
   }
 
   async listarTodos () {
-    return await this.ProductosApiInstance.listarTodos()
+    return await this.productosDao.listarTodos()
   }
 
   async listarPorId (id) {
-    return await this.ProductosApiInstance.listarPorId(id)
+    return await this.productosDao.listarPorId(id)
   }
 
   async guardar (product) {
-    return await this.ProductosApiInstance.guardar(product)
+    return await this.productosDao.guardar(product)
   }
 
   async actualizar (product, id) {
-    return await this.ProductosApiInstance.actualizar(product, id)
+    return await this.productosDao.actualizar(product, id)
   }
 
   async eliminar (id) {
-    return await this.ProductosApiInstance.eliminar(id)
+    return await this.productosDao.eliminar(id)
   }
 }
 

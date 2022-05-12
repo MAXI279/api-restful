@@ -10,8 +10,8 @@ const path = require('path')
 const http = require('http')
 const rutasApi = require('./routes/app.routes')
 const rutasWeb = require('./routes/web.routes')
-const { knexSqlite3, chatTable, prodTable } = require('./data/config')
-const SQLContainer = require('./models/containers/SQL.container')
+const { chatTable, prodTable } = require('./data/config')
+// const SQLContainer = require('./models/containers/SQL.container')
 const initDB = require('./data/initDB')
 const env = require('./env.config')
 const process = require('process')
@@ -21,6 +21,7 @@ const { /* puerto  , */ modo } = require('./utils/minimist')
 const logger = require('./logs')
 const infoLog = require('./middlewares/log.middleware')
 const apiErrorHandler = require('./error/api-error-handler')
+const MensajesFactoryDAO = require('./models/daos/MensajesFactoryDAO')
 
 const modoCluster = modo === 'CLUSTER'
 // console.log(`${modoCluster} Y ${modo} y ${cluster.isPrimary}`)
@@ -46,7 +47,7 @@ if (modoCluster && cluster.isPrimary) {
   const { chatSocket } = require('./socket/index')
 
   initDB(chatTable, prodTable)
-  const contenedor = new SQLContainer(chatTable, knexSqlite3)
+  const contenedor = MensajesFactoryDAO.get(env.PERSISTENCIA_MENSAJES)
 
   const chat = []
 

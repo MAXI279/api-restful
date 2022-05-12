@@ -2,10 +2,16 @@ require('dotenv').config()
 
 const {
   MONGO_URL,
-  PORT
+  PORT,
+  PERSISTENCIA_PRODUCTOS,
+  PERSISTENCIA_MENSAJES,
+  PERSISTENCIA_USERS
 } = process.env
 
 module.exports = {
   MONGO_URL,
-  PORT
+  PORT,
+  PERSISTENCIA_PRODUCTOS,
+  PERSISTENCIA_MENSAJES,
+  PERSISTENCIA_USERS
 }

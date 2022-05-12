@@ -1,9 +1,10 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bCrypt = require('bcrypt')
+const env = require('../env.config')
 
-const UsersDao = require('../models/daos/Users.dao')
-const User = new UsersDao()
+const UsersFactoryDAO = require('../models/daos/UsersFactoryDAO')
+const userDao = UsersFactoryDAO.get(env.PERSISTENCIA_USERS)
 
 const salt = () => bCrypt.genSaltSync(10)
 const encrypt = (password) => bCrypt.hashSync(password, salt())
@@ -19,7 +20,7 @@ passport.use('signup', new LocalStrategy({
     email: username,
     password: encrypt(password)
   }
-  User.createUser(newUser)
+  userDao.createUser(newUser)
     .then((user) => {
       console.log('User registration successful!')
       return done(null, user)
@@ -32,7 +33,7 @@ passport.use('signup', new LocalStrategy({
 ))
 
 passport.use('signin', new LocalStrategy((username, password, done) => {
-  User.getByEmail(username)
+  userDao.getByEmail(username)
     .then((user) => {
       if (!isValidPassword(user, password)) {
         console.log('Invalid password')
@@ -53,7 +54,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   console.log('Inside deserializer')
-  User.getById(id)
+  userDao.getById(id)
     .then(user => {
       done(null, user)
     })
