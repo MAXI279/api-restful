@@ -1,6 +1,11 @@
 require('dotenv').config()
 
+const env = process.env.NODE_ENV || 'development'
+let DB_PRODUCTOS
+
 const {
+  SQL_DB_PRODUCTOS_TEST,
+  SQL_DB_PRODUCTOS,
   MONGO_URL,
   PORT,
   PERSISTENCIA_PRODUCTOS,
@@ -8,7 +13,14 @@ const {
   PERSISTENCIA_USERS
 } = process.env
 
+if (env.trim() === 'test') {
+  DB_PRODUCTOS = SQL_DB_PRODUCTOS_TEST
+} else {
+  DB_PRODUCTOS = SQL_DB_PRODUCTOS
+}
+
 module.exports = {
+  DB_PRODUCTOS,
   MONGO_URL,
   PORT,
   PERSISTENCIA_PRODUCTOS,

@@ -67,3 +67,63 @@
 {"level":"warn","message":"ruta /tttt método GET no implementada"}
 {"level":"warn","message":"ruta /tssss método GET no implementada"}
 {"level":"warn","message":"ruta /url método GET no implementada"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"error","message":"400 - [BAD REQUEST] titulo, precio y url son campos obligatorios"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1144 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1160 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1179 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1198 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1217 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1236 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1255 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1261 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1277 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1283 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1299 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1305 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1321 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1327 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1343 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1349 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1365 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1371 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1387 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1393 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1409 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1415 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1431 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1437 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1453 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1459 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1475 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1481 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1497 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1503 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1519 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1525 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1541 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1547 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1563 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1569 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1585 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1591 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1607 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1613 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1629 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1635 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1651 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1657 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1014 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1020 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1036 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1042 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1058 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1064 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1080 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1086 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1102 no encontrado!"}
+{"level":"error","message":"400 - [BAD REQUEST] Producto con id 1108 no encontrado!"}

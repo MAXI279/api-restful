@@ -1,4 +1,3 @@
-const fs = require('fs')
 
 class SQLContainer {
   constructor (tabla, knex) {
@@ -29,8 +28,11 @@ class SQLContainer {
   }
 
   async deleteAll () {
-    const empty = ''
-    await fs.promises.writeFile(this.url, empty, 'utf-8')
+    try {
+      return await this.knex(this.tabla).del()
+    } catch (error) {
+      console.log('No se han podido eliminar todos los registros', error)
+    }
   }
 
   async deleteById (id) {

@@ -6,14 +6,15 @@
   "scripts": {
     "start": "node index.js",
     "start-pm2": "pm2 start index.js --name=\"Fork Server\" --watch -- -p 8080 -m FORK ",
-    "start-dev": "nodemon index.js",
+    "start-dev": "set NODE_ENV=test && nodemon index.js",
     "fork-consigna-1": "pm2 start index.js --name=\"Fork Server\" -- -p 8080 -m FORK ",
     "cluster-consigna-1": "pm2 start index.js --name=\"Cluster Server\" -i -- -p 8081 -m CLUSTER ",
     "fork-consigna-2-8082": "pm2 start index.js --name=\"Fork Svr-8082-NGINX\" -- -p 8082 -m FORK ",
     "fork-consigna-2-8083": "pm2 start index.js --name=\"Fork Svr-8083-NGINX\" -- -p 8083 -m FORK ",
     "fork-consigna-2-8084": "pm2 start index.js --name=\"Fork Svr-8084-NGINX\" -- -p 8084 -m FORK ",
     "fork-consigna-2-8085": "pm2 start index.js --name=\"Fork Svr-8085-NGINX\" -- -p 8085 -m FORK ",
-    "heroku-postbuild": "npm install pm2"
+    "heroku-postbuild": "npm install pm2",
+    "test": "set NODE_ENV=test && mocha */**.test.js"
   },
   "author": "Maximiliano Bianco",
   "license": "ISC",
@@ -42,12 +43,16 @@
     "winston": "^3.6.0"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
+    "faker": "^5.5.3",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.15",
-    "standard": "^16.0.4"
+    "standard": "^16.0.4",
+    "supertest": "^6.2.3"
   }
 }

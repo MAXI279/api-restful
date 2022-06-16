@@ -1,4 +1,5 @@
 const knex = require('knex')
+const env = require('../env.config')
 
 const config = {
   client: 'sqlite3',
@@ -14,7 +15,7 @@ const configMariaDB = {
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'api'
+    database: env.DB_PRODUCTOS
   },
   useNullAsDefault: true
 }
