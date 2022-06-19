@@ -12,12 +12,15 @@ const env = require('./env.config')
 const logger = require('./logs')
 const infoLog = require('./middlewares/log.middleware')
 const apiErrorHandler = require('./error/api-error-handler')
+const GraphQLController = require('./controllers/graphql')
 
 const app = express()
 
 const rutasWeb = require('./routes/web.routes')
 
 app.use('/public', express.static('public'))
+
+app.use('/graphql', new GraphQLController())
 
 app.use(infoLog) // middleware que loggea en consola todos los request
 

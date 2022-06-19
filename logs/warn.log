@@ -127,3 +127,14 @@
 {"level":"error","message":"400 - [BAD REQUEST] Producto con id 1086 no encontrado!"}
 {"level":"error","message":"400 - [BAD REQUEST] Producto con id 1102 no encontrado!"}
 {"level":"error","message":"400 - [BAD REQUEST] Producto con id 1108 no encontrado!"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"warn","message":"ruta /favicon.ico método GET no implementada"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"error","message":"500 - [INTERNAL ERROR]"}
+{"level":"warn","message":"ruta /graphq método GET no implementada"}
