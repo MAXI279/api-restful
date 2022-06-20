@@ -1,9 +1,9 @@
 const logger = require('../logs')
 
-const infoLog = (req, res, next) => {
-  const respuesta = `ruta ${req.url} método ${req.method} ejecutado`
+const infoLog = async (ctx, next) => {
+  const respuesta = `ruta ${ctx.url} método ${ctx.method} ejecutado`
   logger.info(respuesta)
-  next()
+  await next()
 }
 
 module.exports = infoLog

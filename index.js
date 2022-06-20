@@ -33,7 +33,7 @@ if (modoCluster && cluster.isPrimary) {
 } else {
   const PORT = env.PORT || 8080
 
-  const server = http.createServer(app)
+  const server = http.createServer(app.callback())
   const io = require('socket.io')(server)
   const { chatSocket } = require('./socket/index')
 

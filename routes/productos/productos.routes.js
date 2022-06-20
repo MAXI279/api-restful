@@ -1,12 +1,15 @@
-const express = require('express')
+const Router = require('koa-router')
 const { productoController } = require('../../controllers/index')
 
-const router = express.Router()
+const router = new Router({
+  prefix: '/api/productos'
+})
 
-router.get('/', (req, res, next) => productoController.getAllProductos(req, res, next))
-router.get('/:id', (req, res, next) => productoController.getProductoById(req, res, next))
-router.post('/', (req, res, next) => productoController.postProducto(req, res, next))
-router.put('/:id', (req, res, next) => productoController.putProductoById(req, res, next))
-router.delete('/:id', (req, res, next) => productoController.deleteProductoById(req, res, next))
+router.get('/', (ctx, next) => productoController.getAllProductos(ctx, next))
+router.get('/', (ctx, next) => productoController.getAllProductos(ctx, next))
+router.get('/:id', (ctx, next) => productoController.getProductoById(ctx, next))
+router.post('/', (ctx, next) => productoController.postProducto(ctx, next))
+router.put('/:id', (ctx, next) => productoController.putProductoById(ctx, next))
+router.delete('/:id', (ctx, next) => productoController.deleteProductoById(ctx, next))
 
 module.exports = router
