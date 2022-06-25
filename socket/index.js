@@ -1,3 +1,4 @@
+const normalizar = require('../utils/normalizr')
 
 const chatSocket = (contenedor, io, chat) => {
   io.on('connection', async socket => {
@@ -17,7 +18,7 @@ const chatSocket = (contenedor, io, chat) => {
     })
   })
 
-  const emitir = () => io.sockets.emit('chat', chat)
+  const emitir = () => io.sockets.emit('chat', normalizar(chat))
 
   const emitirUpdateProductos = () => io.sockets.emit('updateProductos')
 

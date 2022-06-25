@@ -138,3 +138,15 @@
 {"level":"error","message":"500 - [INTERNAL ERROR]"}
 {"level":"error","message":"500 - [INTERNAL ERROR]"}
 {"level":"warn","message":"ruta /graphq método GET no implementada"}
+{"level":"warn","message":"ruta /undefined método GET no implementada"}
+{"level":"warn","message":"ruta /undefined método GET no implementada"}
+{"level":"warn","message":"ruta /undefined método GET no implementada"}
+{"level":"warn","message":"ruta /undefined método GET no implementada"}
+{"level":"warn","message":"ruta /test método GET no implementada"}
+{"level":"warn","message":"ruta /url.com método GET no implementada"}
+{"level":"warn","message":"ruta /test método GET no implementada"}
+{"level":"warn","message":"ruta /url.com método GET no implementada"}
+{"level":"warn","message":"ruta /test método GET no implementada"}
+{"level":"warn","message":"ruta /url.com método GET no implementada"}
+{"level":"warn","message":"ruta /test método GET no implementada"}
+{"level":"warn","message":"ruta /url.com método GET no implementada"}
